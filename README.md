@@ -11,7 +11,7 @@ How to run the Test
 | # | Test Case  | Description     | Result|
 |---|:----------|:------------------|---------|
 | 1 | test_can_GET_all_users_path_all | Fetching data from data base, it should return list of all people correctly.  |Pass|
-| 2 | test_get_user_with_valid_date | Use ```GET``` method to get the data of users in the specific date. |Pass|
+| 2 | test_get_user_with_valid_date | Use ```GET``` method to get the data of users in the specific date. |Fail|
 | 3 | test_get_status_code_with_future_date | Use ```GET``` method to get the data of users in the future date. |Pass|
 | 4 |test_get_status_code_without_num_date |  Use ```GET``` method to get the data of users on empty date.|Pass|
 | 5 | test_invalid_date_format | Use ```GET``` method to get the data of users by providing invalid date format.|Pass|
@@ -26,4 +26,5 @@ How to run the Test
 * From the list of Test Cases. My test pass 6 tests and fail 4 tests.
   You can see the test which fail at table above. [24 Oct 2021]
 
-* Right now all tests is pass. [11 Nov 2021]
+* From the list of Test Cases. My test pass 10 tests and fail 1 test.
+  You can see the test which fail at table above. [11 Nov 2021]
