@@ -28,6 +28,7 @@ class SuchonServiceSiteTest(unittest.TestCase):
         response = requests.get(url)
         self.assertEqual(204, response.status_code)
         self.assertTrue(response.ok)
+        
 
     def test_get_status_code_with_future_date(self):
         """Test Case ID #3
@@ -109,3 +110,13 @@ class SuchonServiceSiteTest(unittest.TestCase):
         self.assertTrue(response.ok)
         self.assertEqual("application/json; charset=utf-8", response.headers["Content-Type"])
 
+    def test_get_the_date_that_exist(self):
+        """ Test Case ID #11
+
+            Test that we make an appoint on the exist date(The date I collect them from our data base that exist.)."""
+        exist_date = '21-10-2021' 
+        url = WEB_URL + "/by_date/" + exist_date
+        res = requests.get(url)
+        people = res.json()
+        date_from_json = people['date']
+        self.assertEqual(date_from_json, exist_date)
