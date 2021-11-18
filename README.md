@@ -23,7 +23,7 @@ How to run the Test
 | 11 | test_get_the_date_that_exist | Checking that form ```JSON``` data we got the exist date|Pass|
 
 ## Conclusion
-From the list of Test Cases. My test pass 6 tests and fail 4 tests.
-You can see the test which fail at table above. [24 Oct 2021]
+* From the list of Test Cases. My test pass 6 tests and fail 4 tests.
+  You can see the test which fail at table above. [24 Oct 2021]
 
-Right now all test is pass. [11 Nov 2021]
+* Right now all tests is pass. [11 Nov 2021]
