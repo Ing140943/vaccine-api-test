@@ -3,8 +3,10 @@
 How to run the Test          
 * ```python -m unittest api_testing.py```
 
-## Detail
-List of Test Cases
+## API Document
+[Suchon-api-documentation](https://suchonsite-server.herokuapp.com/api-docs/#/)
+
+## List of Test Cases
 
 | # | Test Case  | Description     | Result|
 |---|:----------|:------------------|---------|
@@ -18,6 +20,7 @@ List of Test Cases
 | 8 | test_provide_wrong_date_format |Use ```GET``` method to get the data of users by providing string in the given WEB_URL. |Pass|
 | 9 | test_provide_wrong_param | Use ```GET``` method to get the data of users by providing date with wrong path.|Pass|
 | 10 | test_verify_JSON_data_type_format | Checking data type from fetching data, the type should be ```JSON```|Pass|
+| 11 | test_get_the_date_that_exist | Checking that form ```JSON``` data we got the exist date|Pass|
 
 ## Conclusion
 From the list of Test Cases. My test pass 6 tests and fail 4 tests.
