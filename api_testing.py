@@ -26,7 +26,7 @@ class SuchonServiceSiteTest(unittest.TestCase):
         pub_date = datetime.date.today()
         url = WEB_URL + "by_date/" + pub_date.strftime('%d-%m-%y')
         response = requests.get(url)
-        self.assertEqual(204, response.status_code)
+        self.assertEqual(200, response.status_code)
         self.assertTrue(response.ok)
         
 
@@ -120,3 +120,6 @@ class SuchonServiceSiteTest(unittest.TestCase):
         people = res.json()
         date_from_json = people['date']
         self.assertEqual(date_from_json, exist_date)
+
+if __name__ == '__main__':
+    unittest.main()
