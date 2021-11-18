@@ -26,7 +26,7 @@ class SuchonServiceSiteTest(unittest.TestCase):
         pub_date = datetime.date.today()
         url = WEB_URL + "by_date/" + pub_date.strftime('%d-%m-%y')
         response = requests.get(url)
-        self.assertEqual(200, response.status_code)
+        self.assertEqual(204, response.status_code)
         self.assertTrue(response.ok)
 
     def test_get_status_code_with_future_date(self):
@@ -36,7 +36,7 @@ class SuchonServiceSiteTest(unittest.TestCase):
         pub_date = datetime.date.today() + datetime.timedelta(days=+10)
         url = WEB_URL + "by_date/" + pub_date.strftime('%d-%m-%yy')
         response = requests.get(url)
-        self.assertEqual(200, response.status_code)
+        self.assertEqual(204, response.status_code)
         self.assertTrue(response.ok)
 
     def test_get_status_code_without_num_date(self):
@@ -45,9 +45,9 @@ class SuchonServiceSiteTest(unittest.TestCase):
             Test that can get a user information correctly and successful by provide empty date."""
         url = WEB_URL + "by_date/"
         response = requests.get(url)
-        self.assertEqual(202, response.status_code)
+        self.assertEqual(406, response.status_code)
         self.assertFalse(response.ok)
-        self.assertEqual("no date included", response.reason)
+        self.assertEqual("Not Acceptable", response.reason)
 
     def test_invalid_date_format(self):
         """Test Case ID #5
@@ -56,8 +56,8 @@ class SuchonServiceSiteTest(unittest.TestCase):
         pub_date = datetime.date.today()
         url = WEB_URL + "by_date/" + str(pub_date)
         response = requests.get(url)
-        self.assertEqual(404, response.status_code)
-        self.assertEqual("Not Found", response.reason)
+        self.assertEqual(204, response.status_code)
+
 
     def test_provide_invalid_month_in_date_format(self):
         """Test Case ID #6
@@ -65,9 +65,9 @@ class SuchonServiceSiteTest(unittest.TestCase):
             Test that can get a user information correctly and successful by provide wrong format month."""
         url = WEB_URL + "by_date/" + "23-OCT-2021"
         response = requests.get(url)
-        self.assertEqual(404, response.status_code)
-        self.assertFalse(response.ok)
-        self.assertEqual("Not Found", response.reason)
+        self.assertEqual(204, response.status_code)
+        self.assertTrue(response.ok)
+
 
     def test_provide_slash_in_date_format(self):
         """Test Case ID #7
@@ -85,9 +85,9 @@ class SuchonServiceSiteTest(unittest.TestCase):
             Test that can get a user information correctly and successful by provide string in date format."""
         url = WEB_URL + "by_date/" + "always_wrong"
         response = requests.get(url)
-        self.assertEqual(404, response.status_code)
-        self.assertFalse(response.ok)
-        self.assertEqual("Not Found", response.reason)
+        self.assertEqual(204, response.status_code)
+        self.assertTrue(response.ok)
+
 
     def test_provide_wrong_param(self):
         """Test Case ID #9
